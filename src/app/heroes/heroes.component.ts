@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import {validate} from 'codelyzer/walkerFactory/walkerFn';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-heroes',
@@ -35,14 +35,29 @@ export class HeroesComponent implements OnInit {
     this.himgsrc = this.addHeroForm.get('imgsrc').value;
     this.hdescription = this.addHeroForm.get('description').value;
      this.hero = new Hero(this.hname, this.himgsrc, this.hdescription);
-      this.herodata.addHero(this.hero).subscribe(data => this.heroes$ = this.heroes$.concat(this.hero));
+      this.herodata.addHero(this.hero).subscribe(data => {this.heroes$ = this.heroes$.concat(this.hero);
+        swal({
+          title: 'Added',
+          text: 'Your Hero has been Added',
+          position: 'center',
+          showConfirmButton: false,
+          timer: 2000,
+          type: 'success'
+        });
+      });
       this.addHeroForm.reset();
-    swal('Added!', 'Your Hero has been Added.', 'success');
+
   }
   deletehero(hero) {
-
      this.herodata.deleteHero(hero).subscribe(data => {
-       swal('Deleted!', 'Your Hero has been deleted.', 'success');
+       swal({
+         title: 'Deleted',
+         text: 'Your Hero has been deleted',
+         position: 'center',
+         showConfirmButton: false,
+         timer: 2000,
+         type: 'success'
+       });
        this.heroes$.splice(this.heroes$.indexOf(hero), 1 );
      });
   }
