@@ -1,3 +1,6 @@
-<p>
-  hero-search works!
-</p>
+<form [formGroup]="searchForm" class="form-inline my-2 my-lg-0 offset-sm-2 col-sm-12">
+  <input class="form-control mr-sm-2" (keyup)="getsearchHeroes()" formControlName="search" type="search" placeholder="Search Hero" aria-label="Search">
+  <ul *ngIf="sheroes" class="list-group col-sm-12" style="z-index: 10000">
+    <li class="list-group-item" *ngFor="let hero of sheroes"><a routerLink="/details/{{hero.id}}">{{hero.name}}</a></li>
+  </ul>
+</form>
