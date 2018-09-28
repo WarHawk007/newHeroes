@@ -9,10 +9,10 @@ export class HeroesdataService {
   constructor(private httpclient: HttpClient) {}
   getHeroes(): Observable<Hero[]> {
     // return this.httpclient.get<Hero[]>('https://modernlibrarysystem.000webhostapp.com/heroapi/herodata.php');
-    return this.httpclient.get<Hero[]>('http://localhost/heroapi/herodata.php');
+    return this.httpclient.get<Hero[]>('https://heroes007.000webhostapp.com/herodata.php');
   }
   addHero(hero: Hero): Observable<Hero> {
-    return this.httpclient.post<Hero>('https://heroes007.000webhostapp.com/herodata.php', hero);
+    return this.httpclient.post<Hero>('https://heroes007.000webhostapp.com/inserthero.php', hero);
   }
   getHero(heroid): Observable<Hero> {
     return this.httpclient.get<Hero>('https://heroes007.000webhostapp.com/herodata.php?id=' + heroid);
