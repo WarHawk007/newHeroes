@@ -12,18 +12,18 @@ export class HeroesdataService {
     return this.httpclient.get<Hero[]>('http://localhost/heroapi/herodata.php');
   }
   addHero(hero: Hero): Observable<Hero> {
-    return this.httpclient.post<Hero>('http://localhost/heroapi/inserthero.php', hero);
+    return this.httpclient.post<Hero>('https://heroes007.000webhostapp.com/herodata.php', hero);
   }
   getHero(heroid): Observable<Hero> {
-    return this.httpclient.get<Hero>('http://localhost/heroapi/herodata.php?id=' + heroid);
+    return this.httpclient.get<Hero>('https://heroes007.000webhostapp.com/herodata.php?id=' + heroid);
   }
   updateHero(hero: Hero): Observable<Hero> {
-    return this.httpclient.put<Hero>('http://localhost/heroapi/updatehero.php', hero);
+    return this.httpclient.put<Hero>('https://heroes007.000webhostapp.com/updatehero.php', hero);
   }
   deleteHero(hero: Hero): Observable<Hero> {
-    return this.httpclient.delete<Hero>('http://localhost/heroapi/deletehero.php?id=' + hero.id);
+    return this.httpclient.delete<Hero>('https://heroes007.000webhostapp.com/deletehero.php?id=' + hero.id);
   }
   searchbyname(name): Observable<Hero[]> {
-    return this.httpclient.get<Hero[]>('http://localhost/heroapi/herodata.php?name=' + name);
+    return this.httpclient.get<Hero[]>('https://heroes007.000webhostapp.com/herodata.php?name=' + name);
   }
 }
