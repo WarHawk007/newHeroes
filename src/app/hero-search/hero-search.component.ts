@@ -15,6 +15,7 @@ export class HeroSearchComponent implements OnInit {
   heroes: Hero[];
   sheroes: Hero[];
   temp: string;
+  url: string;
   searchForm = this.fb.group({
     search: ['', Validators.required]
   });
@@ -22,6 +23,7 @@ export class HeroSearchComponent implements OnInit {
 
   ngOnInit() {
     this.herodata.getHeroes().subscribe(data => this.heroes = data);
+
   }
   getsearchHeroes() {
     if (this.searchForm.get('search').value !== '') {

@@ -1,13 +1,10 @@
  <div class="card col-sm-8 offset-sm-2">
     <div class="card-body">
       <div class="row col-sm-8 offset-sm-2">
-      <div class=" col-sm-3">
-        <button id="showaddform"style="font-size: 30px" class="btn btn-sm btn-primary"
+      <div class=" col-lg-3 col-sm-2">
+        <button id="showaddform"style="font-size: 30px; " class="btn btn-sm btn-primary"
                 xmlns="http://www.w3.org/1999/html"><b>+</b>
         </button>
-      </div>
-      <div class="col-sm-6" style="height: 80px;">
-        <app-hero-search></app-hero-search>
       </div>
     </div>
   </div>
@@ -57,14 +54,14 @@
       </div>
     </div>
   </div>
-  <div *ngFor="let hero of heroes$" class="card col-sm-3" style="margin:20px 20px 20px 80px;padding: 10px">
+  <div *ngFor="let hero of heroes$" class="card col-lg-3 sm-md-12" style="margin:20px 20px 20px 80px;padding: 10px">
     <img class="card-img-top img-thumbnail" src="{{hero.imgsrc}}" alt="Card image cap">
     <div class="card-body">
       <div class="row">
       <h5 class="card-title col-sm-12">{{hero.name}}</h5>
-        <div class="col-sm-10" style="margin: 0 auto;">
+        <div class="col-sm-12" style="margin: 0 auto;">
         <a routerLink="/details/{{hero.id}}" class="btn btn-primary col-sm-5">Details</a>
-        <button (click)="deletehero(hero)"  class="btn btn-primary col-sm-5">Delete</button>
+        <button (click)="deletehero(hero)"  class="btn btn-primary  offset-sm-2 col-sm-5">Delete</button>
         </div>
     </div>
     </div>

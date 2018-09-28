@@ -28,6 +28,9 @@ export class HeroesComponent implements OnInit {
   });
   constructor(private herodata: HeroesdataService , private fb: FormBuilder ) {}
   ngOnInit() {
+    this.getheroes();
+  }
+  getheroes() {
     this.herodata.getHeroes().subscribe(data => this.heroes$ = data);
   }
   addnewHero() {
@@ -35,7 +38,8 @@ export class HeroesComponent implements OnInit {
     this.himgsrc = this.addHeroForm.get('imgsrc').value;
     this.hdescription = this.addHeroForm.get('description').value;
      this.hero = new Hero(this.hname, this.himgsrc, this.hdescription);
-      this.herodata.addHero(this.hero).subscribe(data => {this.heroes$ = this.heroes$.concat(this.hero);
+      this.herodata.addHero(this.hero).subscribe(data => {
+        this.getheroes();
         swal({
           title: 'Added',
           text: 'Your Hero has been Added',
@@ -46,7 +50,6 @@ export class HeroesComponent implements OnInit {
         });
       });
       this.addHeroForm.reset();
-
   }
   deletehero(hero) {
      this.herodata.deleteHero(hero).subscribe(data => {

@@ -1,6 +1,7 @@
-<form [formGroup]="searchForm" class="form-inline my-2 my-lg-0 offset-sm-2 col-sm-12">
-  <input class="form-control mr-sm-2" (keyup)="getsearchHeroes()" formControlName="search" type="search" placeholder="Search Hero" aria-label="Search">
-  <ul *ngIf="sheroes" class="list-group col-sm-12" style="z-index: 10000">
+
+<form [formGroup]="searchForm" class="form-inline my-4 my-lg-0">
+  <input class="form-control mr-sm-2" (keyup)="getsearchHeroes()" formControlName="search" type="search" placeholder="Search" aria-label="Search">
+  <ul *ngIf="sheroes" class="list-group col-sm-6  animated zoomIn" style="z-index: 10000;position: absolute;top: 43px;">
     <li class="list-group-item" *ngFor="let hero of sheroes"><a routerLink="/details/{{hero.id}}">{{hero.name}}</a></li>
   </ul>
 </form>

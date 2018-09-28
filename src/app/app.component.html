@@ -16,7 +16,7 @@
         <a class="nav-link"  routerLink="/heroes" routerLinkActive="nactive" [routerLinkActiveOptions]="{exact: true}" >Heroes</a>
       </li>
     </ul>
-
+      <app-hero-search *ngIf=" url == '/heroes' "></app-hero-search>
   </div>
   </div>
 </nav>
